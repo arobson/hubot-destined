@@ -1,0 +1,42 @@
+{
+  "name": "hubot-destined",
+  "description": "Destiny item search for hubot",
+  "version": "0.1.0",
+  "author": "Alex Robson <asrobson@gmail.com>",
+  "license": "MIT",
+  "keywords": "hubot, hubot-scripts, destiny",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/arobson/hubot-destined.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arobson/hubot-destined/issues"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "nedb": "^1.2.1",
+    "request": "^2.60.0",
+    "when": "^3.7.4"
+  },
+  "peerDependencies": {
+    "hubot": "2.x"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "coffee-script": "1.6.3",
+    "biggulp": "^0.2.2",
+    "chai-as-promised": "^5.1.0",
+    "gulp": "^3.9.0",
+    "install": "^0.1.8",
+    "npm": "^2.14.0",
+    "sinon": "^1.16.1",
+    "sinon-as-promised": "^4.0.0",
+    "sinon-chai": "^2.8.0",
+    "hubot": "2.x",
+    "matchdep": "~0.3.0"
+  },
+  "main": "index.coffee",
+  "scripts": {
+    "test": "gulp"
+  }
+}
