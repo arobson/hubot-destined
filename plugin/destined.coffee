@@ -7,7 +7,7 @@
 # Commands:
 #   find <name> - find any item where the name matches the text entered
 #   link <name> - find any item where the name matches the text entered
-#
+#   refresh data - download and update data from latest destiny plumbing feed
 
 plugin = require "../src/plugin"
 

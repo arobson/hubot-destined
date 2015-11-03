@@ -1,6 +1,9 @@
 module.exports = {
 	"name.search": [
-		/^find (.*)$/,
-		/^link (.*)$/
+		/find (.*)$/,
+		/link (.*)$/
+	],
+	"populate": [
+		/refresh data$/
 	]
 };

@@ -3,7 +3,7 @@ var commands = require( "./commands" );
 var processor = require( "./processor" );
 var parser = require( "./parser" );
 var format = require( "util" ).format;
-var rawItems = require( "./data/rawItem" );
+var rawItems = require( "./data/rawItem" )();
 
 function formatJSON( obj ) {
 	var json = JSON.stringify( _.omit( obj, [ "topic" ] ), null, 2 );
@@ -30,14 +30,23 @@ function listen( robot ) {
 
 function setup( robot ) {
 	listen( robot );
-	rawItems.populate()
-		.then( function() {
-			console.log( "Destiny data populated from source." );
+	function onCount( count ) {
+		if ( count === 0 ) {
+			rawItems.populate()
+				.then( function() {
+					console.log( "Destiny data populated from source." );
+					robot.destinyStatus = { success: true };
+				}, function( err ) {
+					console.log( "Error getting Destiny data :(", err );
+					robot.destinyStatus = { error: err };
+				} );
+		} else {
 			robot.destinyStatus = { success: true };
-		}, function( err ) {
-			console.log( "Error getting Destiny data :(", err );
-			robot.destinyStatus = { error: err };
-		} );
+			console.log( "Destiny data loaded from disk." );
+		}
+	}
+	rawItems.count()
+		.then( onCount, function() {} );
 }
 
 module.exports = setup;
