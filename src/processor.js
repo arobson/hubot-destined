@@ -19,13 +19,14 @@ function send( res ) {
 }
 
 module.exports = {
-	"name.search": function searchByName( res, itemName ) {
+	"name.search": function searchByName( robot, res, itemName ) {
 		function onList( result ) {
 			if ( result.attachments.length === 0 ) {
 				reply( res, "That which you seek could not be found, LaGuardian." );
 			} else {
 				reply( res, format( "Guardian, %s items match your search!", result.attachments.length ) );
-				res.reply( result );
+				result.channel = res.envelope.room;
+				robot.emit( "slack.attachment", result );
 			}
 		}
 		function onError( err ) {
@@ -35,7 +36,7 @@ module.exports = {
 		rawItems.searchByName( itemName )
 			.then( onList, onError );
 	},
-	"populate": function populateSource( res ) {
+	"populate": function populateSource( robot, res ) {
 		function onDone() {
 			reply( res, "Latest data was downloaded and processed." );
 		}

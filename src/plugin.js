@@ -21,7 +21,7 @@ function listen( robot ) {
 				res.reply( format( "The Darkness grows, guardian, behold!\n```%s```" ) );
 			} else {
 				var data = parser( res.match[ 0 ] );
-				var args = [ res ].concat( data.args );
+				var args = [ robot, res ].concat( data.args );
 				return processor[ data.command ].apply( undefined, args );
 			}
 		} );
