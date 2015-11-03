@@ -1,5 +1,8 @@
 ## 0.1.*
 
+### 0.1.3
+Corrections to formatting for Slack
+
 ### 0.1.2
  * Use Slack's attachment feature to provide nicely formatted messages that include item icon
  * Limit results to equippable items

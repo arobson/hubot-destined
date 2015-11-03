@@ -20,14 +20,12 @@ function send( res ) {
 
 module.exports = {
 	"name.search": function searchByName( res, itemName ) {
-		function onList( list ) {
-			if ( list.length === 0 ) {
+		function onList( result ) {
+			if ( result.attachments.length === 0 ) {
 				reply( res, "That which you seek could not be found, LaGuardian." );
 			} else {
-				reply( res, format( "Guardian, %s items match your search!", list.length ) );
-				_.each( list, function( item ) {
-					res.reply( item );
-				} );
+				reply( res, format( "Guardian, %s items match your search!", result.attachments.length ) );
+				res.reply( result );
 			}
 		}
 		function onError( err ) {
@@ -42,11 +40,11 @@ module.exports = {
 			reply( res, "Latest data was downloaded and processed." );
 		}
 		function onError( err ) {
-			res.emote( "sad boop" );
+			res.emote( "_sad boop_" );
 			res.reply( "The Darkness grows: %s", err );
 		}
 		rawItems.populate()
 			.then( onDone, onError );
-		res.emote( "is off to fetch the latest feed" );
+		res.emote( "_is off to fetch the latest feed_" );
 	}
 };

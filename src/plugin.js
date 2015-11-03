@@ -16,7 +16,7 @@ function listen( robot ) {
 	_.each( patterns, function( pattern ) {
 		robot.respond( pattern, function( res ) {
 			if ( !robot.destinyStatus ) {
-				res.emote( "is scouring the galaxy, acquiring the latest information." );
+				res.emote( "_is scouring the galaxy, acquiring the latest information_" );
 			} else if ( robot.destinyStatus.error ) {
 				res.reply( format( "The Darkness grows, guardian, behold!\n```%s```" ) );
 			} else {

@@ -1,7 +1,7 @@
 {
   "name": "hubot-destined",
   "description": "Destiny item search for hubot",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Alex Robson <asrobson@gmail.com>",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts, destiny",
