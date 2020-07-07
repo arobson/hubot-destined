@@ -28,7 +28,7 @@
     "chai-as-promised": "^5.1.0",
     "gulp": "^3.9.0",
     "install": "^0.1.8",
-    "npm": "^2.14.0",
+    "npm": "^6.14.6",
     "sinon": "^1.16.1",
     "sinon-as-promised": "^4.0.0",
     "sinon-chai": "^2.8.0",
